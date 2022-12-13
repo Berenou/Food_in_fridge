@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div id="app">
+        <div class ="nav-bar">
+            <div class="product-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3"> List of food in fridge </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <img v-bind:src="quantity[0].image"> </td>
+                            <td> <img v-bind:src="quantity[1].image"> </td>
+                            <td> <img v-bind:src="quantity[2].image"> </td>
+                        </tr>
+                        <tr>
+                            <!--First column with  the milk bottle-->
+                            <td>
+                                <h1> {{ quantity[0].product }} </h1>
+                                <!--v-if directive-->
+                                <p v-if="quantity[0].stock >2 "> Full </p>
+                                <p v-else-if= "quantity[0].stock <= 2 && quantity[0].stock >0"> Only 1 bottle of milk </p>
+                                <p v-else> Empty </p>
+                                <!-- v-on permits to listen an event, we can also use : @click=... -->
+                                <button class="button" 
+                                    v-on:click="addToList(quantity[0])">
+                                    Add to list
+                                </button>
+                                <!--Be careful if we don't have milk bottle-->
+                                <button 
+                                    class="button"
+                                    :class="{ disabledButton : quantity[0].onList <1 }"
+                                    :disabled ="quantity[0].onList < 1"
+                                    @click="remove(quantity[0])">
+                                    Remove from list
+                                </button>
+                            </td>
+                            <!--Second image, eggs-->
+                            <td>
+                                <h1> {{ quantity[1].product }} </h1>
+                                <!--v-if directive-->
+                                <p v-if="quantity[1].stock >= 6 "> Full </p>
+                                <p v-else-if= "quantity[1].stock <= 5 && quantity[1].stock >0"> only 1 egg </p>
+                                <p v-else> Empty </p>
+                                <!-- v-on permits to listen an event, we can also use : @click=... -->
+                                <button class="button"
+                                    v-on:click="addToList(quantity[1])">
+                                    Add to list
+                                </button>
+                                <!--Be careful if we don't have milk bottle-->
+                                <button 
+                                    class="button"
+                                    :class="{ disabledButton : quantity[1].onList <1 }"
+                                    :disabled ="quantity[1].onList < 1"
+                                    @click="remove(quantity[1])">
+                                    Remove from list
+                                </button>
+                            </td>
+                            <!-- Third image, strawberry -->
+                            <td>
+                                <h1> {{ quantity[2].product}} </h1>
+                                <!--v-if directive-->
+                                <p v-if="quantity[2].stock >=10 "> Full </p>
+                                <p v-else-if= "quantity[2].stock < 10 && quantity[2].stock >0"> not enough strawberry </p>
+                                <p v-else> Empty </p>
+                                <!-- v-on permits to listen an event, we can also use : @click=... -->
+                                <button class="button" v-on:click="addToList(quantity[2])">Add to list</button>
+                                <!--Be careful if we don't have milk bottle-->
+                                <button 
+                                    class="button"
+                                    :class="{ disabledButton : quantity[2].onList <1 }"
+                                    :disabled ="quantity[2].onList < 1"
+                                    @click="remove(quantity[2])">
+                                    Remove from list
+                                </button>
+                            </td>
+                            <p class="cart"> on List : {{cart}}</p>
+                            <p class="list"> Milk : {{quantity[0].onList}} <br> Eggs : {{quantity[1].onList}} <br> Strawberry : {{quantity[2].onList}}  </p>
+                        </tr>
+                    </tbody>
+                </table>
+                    <!--Calling the image using v-blind directive, we indicate with src that it's the soucre it open the image following the source -->
+                    <!--Not mandatory to use v-blind its enough just :src="image" -->
+            </div>
+        </div>
+    </div> 
+    
+    <!-- importing app-->
+    <script src="./main.js"></script>
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+
+</body>
+</html>

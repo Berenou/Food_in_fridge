@@ -1,0 +1,73 @@
+body {
+    background-color: #e8e2e2;
+    margin: 0px;
+    font-family: tahoma;
+    color: #282828;
+  }
+  
+  .button {
+    margin: 10px;
+    background-color: #e0b3e4;
+    border-radius: 2px;
+    font-size: 15px;
+    width: 160px;
+    height: 20px;
+    color: rgb(29, 27, 27);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .cart {
+    margin: 25px 70px;
+    float: right;
+    border: 1px solid #f8b9b9;
+    padding: 30px 30px;
+    background-color: white;
+  }
+
+  .list{
+    margin: 25px 30px;
+    border: 1px solid #f8b9b9;
+    padding: 30px 30px;
+    background-color: white;
+    position: absolute;
+    top: 130px;
+    right: 10px;
+  }
+  
+  .disabledButton {
+    background-color: #d8d8d8;
+    cursor: not-allowed;
+  }
+  
+  h1 {
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  img {
+    border: 2px solid #c99cb9;
+    width: 70%;
+    margin: 20px;
+    padding: 15px;
+  }
+  
+  .nav-bar {
+    background: linear-gradient(-90deg, #e7c9e1, #a158e9);
+    height: 60px;
+    margin-bottom: 25px;
+  }
+  
+  p {
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .product-container table thead tr th{
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .product-container table tbody{
+    text-align: center;
+  }
+    
